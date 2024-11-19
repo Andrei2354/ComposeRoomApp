@@ -40,19 +40,11 @@ android {
     }
 }
 dependencies {
-    // Jetpack Compose
-    implementation (libs.androidx.activity.compose.v172)
-    implementation (libs.ui )
-    implementation (libs.androidx.material )
-    implementation (libs.ui.tooling.preview )
-    // Room
-    implementation (libs.androidx.room.runtime )
-    implementation (libs.androidx.room.ktx )
-    // Lifecycle
-    implementation (libs.androidx.lifecycle.runtime.ktx.v261)
-    ksp (libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
 
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.room.common)
+    implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))

@@ -16,6 +16,7 @@ roomKtx = "2.6.1"
 roomRuntime = "2.6.1"
 ui = "1.7.5"
 uiToolingPreview = "1.7.5"
+roomCommon = "2.6.1"
 
 [libraries]
 androidx-activity-compose-v172 = { module = "androidx.activity:activity-compose", version.ref = "activityComposeVersion" }
@@ -40,6 +41,7 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 ui = { module = "androidx.compose.ui:ui", version.ref = "ui" }
 ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "uiToolingPreview" }
+androidx-room-common = { group = "androidx.room", name = "room-common", version.ref = "roomCommon" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

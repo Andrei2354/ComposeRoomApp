@@ -1,8 +1,6 @@
-package com.example.composeroomapp
+package com.example.composeroomapp.view
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
+
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
@@ -13,21 +11,11 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.Dispatchers
-
-class MainActivity : ComponentActivity() {
-    private lateinit var database: AppDatabase
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        // Inicializar la base de datos
-        database = AppDatabase.getDatabase(this)
-
-        setContent {
-            TaskApp(database)
-        }
-    }
-}
+import androidx.compose.material3.Button
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
+import com.example.composeroomapp.data.Task
+import com.example.composeroomapp.data.AppDatabase
 
 @Composable
 fun TaskApp(database: AppDatabase) {
@@ -49,15 +37,15 @@ fun TaskApp(database: AppDatabase) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // Campo de texto para agregar una nueva tarea
-        androidx.compose.material.OutlinedTextField(
+        OutlinedTextField(
             value = newTaskName,
             onValueChange = { newTaskName = it },
-            label = { androidx.compose.material.Text("New Task") },
+            label = { Text("New Task") },
             modifier = Modifier.fillMaxWidth()
         )
 
         // Botón para agregar tarea
-        androidx.compose.material.Button(
+        Button(
             onClick = {
                 scope.launch(Dispatchers.IO) {
                     val newTask = Task(name = newTaskName)
@@ -67,12 +55,12 @@ fun TaskApp(database: AppDatabase) {
                 }
             }
         ) {
-            androidx.compose.material.Text("Add Task")
+            Text(text = "Add Task")
         }
 
         // Mostrar lista de tareas
         tasks.forEach { task ->
-            androidx.compose.material.Text(text = task.name)
+            Text(text = task.name)
         }
     }
 }
